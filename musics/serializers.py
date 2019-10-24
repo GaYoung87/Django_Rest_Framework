@@ -19,9 +19,10 @@ class ArtistSerializer(serializers.ModelSerializer):
 
 class ArtistDetailSerializer(ArtistSerializer):
     musics = MusicSerializer(many=True)
+    music_count = serializers.IntegerField(source='music_count')
 
     class Meta(ArtistSerializer.Meta):
-        fields = ArtistSerializer.Meta.fields + ('musics', )
+        fields = ArtistSerializer.Meta.fields + ('musics', 'music_count', )
 
 
 
