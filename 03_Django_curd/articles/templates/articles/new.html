@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}New Article{% endblock title %}
+
+{% block body %}
+  <h1>New Article</h1>
+  <form action="{% url 'articles:create' %}">  {% comment %} /를 붙여야 동일한 앱 내에서 이동 {% endcomment %}
+    <input type="text" name="title"><br>
+    <textarea name="content" cols="30" rows="10"></textarea><br>
+    <button type="submit">생성하기</button>
+  </form>
+{% endblock body %}

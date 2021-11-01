@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Article::Update{% endblock title %}
+
+{% comment %} update.html페이지가 보인다는 것은 : get요청으로 왔다는 것(주소창으로 쳐도 괜찮기때문) {% endcomment %}
+{% comment %} 게시글을 수정하는 것은 주소창에서 할수없으니까 POST {% endcomment %}
+
+{% block container %}
+
+
+<form method="POST" action="{% url 'articles:update' article_pk %}">
+{% comment %} <form method="POST"> 라고 써도 괜찮. why? 같은페이지로 가는 것이므로  {% endcomment %}
+{% comment %} 수정하고 [수정완료]버튼을 누르면 POST한 것 -> 그러면 update함수로가서 detail페이지로 redirect함
+              -> detail페이지 보여짐 {% endcomment %}
+  <a href="{% url 'articles:update' article_pk %}">[수정하기]</a>  
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">[수정완료]</button>
+  </form>
+<hr>
+{% comment %} 로그인 상태가 아니면 아예 수정하기 버튼을 누를 수 없다. {% endcomment %}
+
+
+{% endblock container %}

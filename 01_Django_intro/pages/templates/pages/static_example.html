@@ -1,0 +1,16 @@
+{% load static %}
+{% comment %} 스테틱 파일에 대한 주소 생성! why? 주소가 있어야 참조 가능 
+              -> 스태틱 파일 사용을위해서는 template에서 로드스태틱을 해야함! {% endcomment %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Static Example</title>
+</head>
+<body>
+  <h1>STATIC 파일 실습</h1>
+  <img src="{% static 'pages/images/강아지.jpg' %}" alt="dog">
+</body>
+</html>

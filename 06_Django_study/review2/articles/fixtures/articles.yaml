@@ -1,0 +1,28 @@
+- model: articles.article
+  pk: 1
+  fields:
+    title: "\uB450\uBC88\uC9F8 \uC544\uD2F0\uD074"
+    content: ''
+    created_at: 2019-10-16 01:24:52.770707+00:00
+    updated_at: 2019-10-16 01:26:17.869534+00:00
+- model: articles.article
+  pk: 2
+  fields:
+    title: "\u3147\u3145\u3147?"
+    content: ''
+    created_at: 2019-10-16 05:08:24.552528+00:00
+    updated_at: 2019-10-16 05:08:24.552528+00:00
+- model: articles.article
+  pk: 4
+  fields:
+    title: "\uBCF4\uACE0\uC2F6\uB2E4"
+    content: "\u3147\u3145\u3147"
+    created_at: 2019-10-16 05:36:45.190893+00:00
+    updated_at: 2019-10-16 05:36:45.190893+00:00
+- model: articles.article
+  pk: 5
+  fields:
+    title: "\u314D\u3145\u314D?"
+    content: "\uC548\uB155\uD558\uC138\uC694~"
+    created_at: 2019-10-16 06:25:20.420055+00:00
+    updated_at: 2019-10-16 06:25:20.420055+00:00

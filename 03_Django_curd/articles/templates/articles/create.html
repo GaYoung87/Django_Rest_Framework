@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}New Article{% endblock title %}
+
+{% block body %}
+  <h1>New Article</h1>
+  <form action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data">  {% comment %} /를 붙여야 동일한 앱 내에서 이동 {% endcomment %}
+    {% csrf_token %} {% comment %}  이 쿠키는 보안상의 이유로 필요 {% endcomment %}
+    <input type="text" name="title"><br>
+    <textarea name="content" cols="30" rows="10"></textarea><br>
+    <label for="image">이미지: </label>
+    <input type="file" name="image" id="image" accept="image/*"><br>
+    <button type="submit">생성하기</button>
+  </form>
+{% endblock body %}

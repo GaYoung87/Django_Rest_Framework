@@ -1,0 +1,42 @@
+[
+    {
+        "model": "articles.article",
+        "pk": 1,
+        "fields": {
+            "title": "\ub450\ubc88\uc9f8 \uc544\ud2f0\ud074",
+            "content": "",
+            "created_at": "2019-10-16T01:24:52.770Z",
+            "updated_at": "2019-10-16T01:26:17.869Z"
+        }
+    },
+    {
+        "model": "articles.article",
+        "pk": 2,
+        "fields": {
+            "title": "\u3147\u3145\u3147?",
+            "content": "",
+            "created_at": "2019-10-16T05:08:24.552Z",
+            "updated_at": "2019-10-16T05:08:24.552Z"
+        }
+    },
+    {
+        "model": "articles.article",
+        "pk": 4,
+        "fields": {
+            "title": "\ubcf4\uace0\uc2f6\ub2e4",
+            "content": "\u3147\u3145\u3147",
+            "created_at": "2019-10-16T05:36:45.190Z",
+            "updated_at": "2019-10-16T05:36:45.190Z"
+        }
+    },
+    {
+        "model": "articles.article",
+        "pk": 5,
+        "fields": {
+            "title": "\u314d\u3145\u314d?",
+            "content": "\uc548\ub155\ud558\uc138\uc694~",
+            "created_at": "2019-10-16T06:25:20.420Z",
+            "updated_at": "2019-10-16T06:25:20.420Z"
+        }
+    }
+]

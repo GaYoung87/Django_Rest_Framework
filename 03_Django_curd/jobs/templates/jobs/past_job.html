@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Past_job{% endblock title %}
+
+{% block body %}
+  <h2>당신의 전생 직업은?</h2>
+  {% if job.profile_image %}
+    <img src="{{ job.profile_image.url }}" alt="{{ job.profile_image }}">
+  {% endif %}
+  <p>{{ job.name }}님의 전생의 직업은 <span style="color: blue;">{{ job.past_job }}</span>입니다</p>
+  <a href="{% url 'jobs:name' %}">[다시하기]</a>
+{% endblock body %}

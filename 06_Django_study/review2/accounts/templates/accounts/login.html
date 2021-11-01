@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Accounts::로그인{% endblock title %}
+
+{% block container %}
+<h2>로그인</h2>
+
+{% comment %} 경로를 동일한 곳으로 보낼 때만 action 생략! {% endcomment %}
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">[로그인]</button>
+</form>
+{% endblock container %}

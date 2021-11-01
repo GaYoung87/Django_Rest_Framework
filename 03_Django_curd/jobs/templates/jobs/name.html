@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Name{% endblock title %}
+
+{% block body %}
+  <h3>이름을 입력해주세요~!</h3>
+  {% comment %} 이 부분은 사진을 저장하겠다는 것! {% endcomment %}
+  {% if jobs.profile_image %}
+    <img src="{{ jobs.profile_image.url }}" alt="{{ jobs.profile_image }}">
+  {% endif %}
+
+  <form action="{% url 'jobs:past_job' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="text" name="name"><br><br>
+  <input type="file" name="profile_image" id="profile_image" accept="image/*"><br><br>
+  <button type="submit">[작성하기]</button>
+  </form>
+{% endblock body %}

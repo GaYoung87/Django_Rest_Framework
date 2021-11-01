@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}아티클: New Article{% endblock title %}
+
+{% block body %}
+<h1>새로운 아티컬 생성</h1>
+<a href="{% url 'articles:index' %}">[뒤로가기]</a>
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% comment %} <label for="title">타이틀: </label><br>
+  <input type="text" name="title" id="title"><br><br>
+
+  <label for="content">내용: </label><br>
+  <textarea name="content" id="content" cols="30" rows="10"></textarea><br> {% endcomment %}
+  {% comment %} id는 label에 맞춤 {% endcomment %}
+  <button type="submit">[생성하기]</button>
+</form>
+{% endblock body %}

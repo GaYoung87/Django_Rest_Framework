@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Template Language</title>
+</head>
+<body>
+  <h1>Template Language</h1>
+  <hr>
+
+  <h2>1. 반복문</h2>
+  {% for menu in menus %}
+  <p>{{ menu }}</p>
+  {% endfor %}
+  <hr>
+
+  {% comment %}
+  {{ forloop }} DTL(Django Template Language) for문 안에서 자동으로 생기는 객체
+  {% endcomment %}
+  {% for menu in menus %}
+  <p>{{ forloop.counter }}. {{ menu }}</p>
+  {% endfor %}
+  <hr>
+
+  {% for user in empty_list %}
+    <p>{{ user }}</p>
+  {% empty %}
+    <p>현재 가입한 유저가 없습니다.</p>
+  {% endfor %}
+  <hr>
+
+
+
+  <h2>2. 조건문</h2>
+  {% if '짜장면' in menus %}
+    <p>짜장면에는 고춧가루지!</p>
+  {% endif %}
+  <hr>
+
+  {% for menu in menus %}
+    <p><strong>{{ forloop.counter }}번째 도는 중...</strong></p>
+    {% if forloop.first %}
+    <p>{{ menu }} + 고춧가루</p>          
+    {% else %}
+    <p>{{ menu }}</p>
+    {% endif %}
+  {% endfor %}
+  <hr>
+
+
+
+  <h2>3. length filter 활용</h2>
+  {% for message in messages %}
+    {% if message|length > 5 %}
+    <p>{{ message }}, 글자가 너무 길어요.</p>
+    {% else %}
+    <p>{{ message }}, {{ message|length }}</p>
+    {% endif %}
+  {% endfor %}
+
+
+
+  <h2>4. lorem ipsum</h2>
+  {% lorem %}
+  <hr>
+  {% comment %} {% lorem %} : 사용자가 지정해준 lorem이라는 문자열이 필요! {% endcomment %}
+  {% lorem 3 w %}
+  <hr>
+  {% lorem 4 w random %}
+  <hr>
+  {% lorem 2 p %}
+  <hr>
+
+
+
+  <h2>5. 글자 수 제한(truncate)</h2>
+  <p>{{ my_sentence|truncatewords:3 }}</p>   <!-- 단어 단위로 제한 -->
+  {% comment %} <!-- 이 주석은 만약에 my_sentence와 같은 함수하면 안됨 --> {% endcomment %}
+  <p>{{ my_sentence|truncatechars:3}}</p>   <!-- 문자 단위로 제한 (3번째는 포함하지 않는다.), 공백포함 -->
+  <p>{{ my_sentence|truncatechars:10}}</p>   <!-- 문자 단위로 제한 (9번째는 포함하지 않는다.) -->
+  <hr>
+
+
+
+  <h2>6. 글자 관련 필터</h2>
+  <p>{{ 'abc'|length }}</p>  {% comment %} <p>{{ abc|length }}</p> 이면 abc라는 변수 찾기{% endcomment %}
+  <p>{{ 'ABC'|lower }}</p>
+  <p>{{ my_sentence|title }}</p>
+  <p>{{ 'abc def'|capfirst }}</p>   <!-- 첫번째 단어만 대문자로 바꾸기 -->
+  <p>{{ menus|random }}</p>
+
+
+
+  <h2>7. 연산</h2>
+  <p>{{ 4|add:6 }}</p>  <!-- 연산은 python의 영역이지만, Django에서 사용은 가능! -->
+  <hr>
+
+
+
+  <h2>8. 날짜표현</h2>
+    {% comment %} 
+      {% now %}가 내장되어 있다.
+    {% endcomment %}
+  <p>{{ datetimenow }}</p>
+  <p>{% now "DATETIME_FORMAT" %}</p>
+  <p>{% now "SHORT_DATETIME_FORMAT" %}</p>
+  <p>{% now "DATE_FORMAT" %}</p>
+  <p>{% now "SHORT_DATE_FORMAT" %}</p>
+  <p>{% now "Y년 m월 d일 (D) h:i" %}</p>
+  <hr>
+
+  {% now "Y" as current_year %}
+  <p>Copyright {{ current_year }}</p>
+  <hr>
+  {{ datetimenow|date:"DATE_FORMAT"}}
+
+
+
+  <h2>9. 기타</h2>
+  <p>{{ "google.com"|urlize }}</p>
+
+
+</body>
+</html>

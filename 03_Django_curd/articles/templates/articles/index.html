@@ -1,0 +1,23 @@
+{% extends 'base.html' %}  {% comment %} extends는 최상단, load static은 그 밑에 {% endcomment %}
+{% load static %}  {% comment %} static 파일들을 불러오겠다. {% endcomment %}
+
+{% block title %}Articles{% endblock title %}
+
+{% block body %}
+  <h1>Articles</h1>
+  <a href="{% url 'articles:create' %}">[작성하기]</a>  {% comment %} 이동시키겠다 {% endcomment %}
+  <img src="{% static 'articles/images/풍경.jpg' %}" alt="">
+  <hr>
+  {% comment %} article list들 보여줌 {% endcomment %}
+  {% for article in articles %}
+  <div>
+    {% comment %} 1. 안녕하세요 {% endcomment %}
+    {% if article.image %}
+      <img src="{{ article.image_thumbnail.url }}" alt="{{ article.image_thumbnail }}">
+    {% endif %}
+    <h3><a href="{% url 'articles:detail' article.pk %}">{{ article.pk }}. {{ article.title }}</a></h3>
+    <p>{{ article.content }}</p>
+  </div>
+  <br>
+  {% endfor %}
+{% endblock body %}
